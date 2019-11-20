@@ -1,0 +1,71 @@
+<button [class]="button_class" (click)="openModal(content)">{{button_text}}</button>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-inner">
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <i class="fal fa-times"></i>
+        </button>
+        <form [formGroup]="callbackForm" #formDir="ngForm" (ngSubmit)="sendData(callbackForm.value)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mb-15 xs-mb-0">
+                        <h3 class="sub-title mb-15 xs-mb-5">Узнать больше</h3>
+                        <p>Если вас заинтересовал наш проект - заполните форму и мы свяжемся с вами в
+                            ближайшее время!</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="def-group">
+                            <input class="def-input def-input-gray" type="text" id="feedback_name" placeholder="Имя"
+                                   formControlName="firstName" required>
+                            <div class="def-group_errors"
+                                 *ngIf="userName.invalid && (userName.dirty || userName.touched)">
+                                <div class="def-input_error" *ngIf="userName.errors.required">
+                                    Поле "Имя" не может быть пустым
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="def-group">
+                            <input class="def-input def-input-gray" type="email" id="feedback_email"
+                                   placeholder="E-mail"
+                                   formControlName="email" required>
+                            <div class="def-group_errors"
+                                 *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)">
+                                <div class="def-input_error" *ngIf="userEmail.errors.required">
+                                    Поле "E-mail" не может быть пустым
+                                </div>
+                                <div class="def-input_error" *ngIf="userEmail.errors.email">
+                                    Некорректный E-mail
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="def-group">
+                            <input class="def-input def-input-gray" type="text" id="feedback_phone"
+                                   placeholder="Телефон" mask="(000) 000-00-00" prefix="+38"
+                                   formControlName="phoneNumber">
+                            <div class="def-group_errors"
+                                 *ngIf="userPhone.invalid && userPhone.touched">
+                                <div class="def-input_error" *ngIf="userPhone.errors.required">
+                                    Поле "Телефон" не может быть пустым
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="submit-btn-wrapper">
+                            <button class="def-btn def-btn-fill-blue" [disabled]="callbackForm.invalid || is_sending">
+                                Отправить
+                            </button>
+                            <div class="form-preloader" *ngIf="show_preloader">
+                                <img src="../assets/images/preloader.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-template>

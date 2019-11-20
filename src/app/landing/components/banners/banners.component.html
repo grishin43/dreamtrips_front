@@ -1,0 +1,18 @@
+<div class="bg-gray">
+    <div class="container mt-neg-35 pb-50 xs-pb-15 xs-pt-15">
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-sm-6 col-12" *ngFor="let banner of banners; let i = index;">
+                <div class="image-banner" [class.sm-mb-30]="banners.length - 1 != i">
+                    <img src="{{banner.image}}" alt="{{banner.meta}}">
+                    <h4>{{banner.title}}</h4>
+                </div>
+            </div>
+            <div class="col-12 mt-35 text-center">
+                <a [attr.href]="telegram_bot_link" class="arrow-link">
+                    Пройти тест и узнать больше
+                    <i class="arrow-icon"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

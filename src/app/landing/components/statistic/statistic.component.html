@@ -1,0 +1,17 @@
+<div class="container pt-100 pb-100 sm-pb-0" id="statistic-block">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center mb-30" data-aos="fade-up" data-aos-once="true">
+            <h3 class="sub-title">{{statistic.title}}</h3>
+        </div>
+        <div class="col-md-3 col-sm-6 col-12 ]" data-aos="fade-up" data-aos-once="true"
+             *ngFor="let item of statistic.info_blocks; let i = index;">
+            <div class="statistic-block" [class.sm-mb-30]="i != statistic.info_blocks.length - 1"
+                 style="background: url(../assets/img/thumnails-info-1.jpg) no-repeat center/cover">
+                <div class="statistic-block_text">
+                    <span class="big-text count-up">{{item.title}}</span>
+                    <span>{{item.subtitle}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

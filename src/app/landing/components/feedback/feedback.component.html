@@ -1,0 +1,80 @@
+<div class="bg-gray pt-80 pb-80" id="feedback">
+    <div class="container">
+        <div class="row mb-30 align-items-center" data-aos="fade-up" data-aos-once="true">
+            <div class="col-auto">
+                <h3 class="sub-title">Обратная связь</h3>
+            </div>
+            <div class="col">
+                <h6 class="sub-info">Задайте Ваш вопрос и мы ответим на него в ближайшее время</h6>
+            </div>
+        </div>
+        <form [formGroup]="feedbackForm" #formDir="ngForm" (ngSubmit)="sendData(feedbackForm.value)">
+            <div class="row" data-aos="fade-up" data-aos-once="true">
+                <div class="col-sm-4 col-12">
+                    <div class="def-group">
+                        <input class="def-input def-input-gray" type="text" id="user-name" placeholder="Имя"
+                               formControlName="firstName" required>
+                        <div class="def-group_errors"
+                             *ngIf="userName.invalid && (userName.dirty || userName.touched)">
+                            <div class="def-input_error" *ngIf="userName.errors.required">
+                                Поле "Имя" не может быть пустым
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-12">
+                    <div class="def-group">
+                        <input class="def-input def-input-gray" type="email" id="user-email" placeholder="E-mail"
+                               formControlName="email" required>
+                        <div class="def-group_errors"
+                             *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)">
+                            <div class="def-input_error" *ngIf="userEmail.errors.required">
+                                Поле "E-mail" не может быть пустым
+                            </div>
+                            <div class="def-input_error" *ngIf="userEmail.errors.email">
+                                Некорректный E-mail
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-12">
+                    <div class="def-group">
+                        <input class="def-input def-input-gray" type="text" id="user-phone"
+                               placeholder="Телефон" mask="(000) 000-00-00" prefix="+38"
+                               formControlName="phoneNumber" required>
+                        <div class="def-group_errors"
+                             *ngIf="userPhone.invalid && userPhone.touched">
+                            <div class="def-input_error" *ngIf="userPhone.errors.required">
+                                Поле "Телефон" не может быть пустым
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="def-group">
+                        <textarea class="def-input def-input-gray" id="user-text" placeholder="Вопрос"
+                                  formControlName="question" required maxlength="{{text_max_length}}"></textarea>
+                        <div class="def-group_errors"
+                             *ngIf="userText.invalid && (userText.dirty || userText.touched)">
+                            <div class="def-input_error" *ngIf="userText.errors.required">
+                                Поле "Вопрос" не может быть пустым
+                            </div>
+                            <div class="def-input_error" *ngIf="userText.errors.maxlength">
+                                Поле "Вопрос" не может содержать более {{text_max_length}} символов
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="submit-btn-wrapper">
+                        <button class="def-btn def-btn-fill-blue" [disabled]="feedbackForm.invalid || is_sending">Отправить</button>
+                        <div class="form-preloader" *ngIf="show_preloader">
+                            <img src="../assets/images/preloader.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

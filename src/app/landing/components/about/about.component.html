@@ -1,0 +1,39 @@
+<div class="container pt-100 pb-50 pb-xs-0" id="about">
+    <div class="row align-items-center">
+        <div class="col-md-6 col-12 sm-mb-30">
+            <div class="image-banner">
+                <img src="{{about.image}}" alt="{{about.meta}}">
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="about-block mw-470 ml-md-auto">
+                <h3 class="sub-title mb-30">{{about.title}}</h3>
+                <ul class="nav nav-tabs justify-content-between" id="info-tab">
+                    <li *ngFor="let info of about.info_blocks; let i = index;">
+                        <a tabindex="{{i}}" [class.active]="tab_index == i"
+                           (click)="setTabIndex(i)">
+                            {{info.title}}
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="info-tab_content">
+                    <div class="tab-pane fade" [ngClass]="{'active show': tab_index == i}"
+                         *ngFor="let info of about.info_blocks; let i = index;">
+                        <p>{{info.text}}</p>
+                    </div>
+                </div>
+                <div class="mt-35">
+                    <app-callback [button_class]='modal_button_class' [button_text]="modal_button_text"></app-callback>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <hr>
+        </div>
+    </div>
+</div>

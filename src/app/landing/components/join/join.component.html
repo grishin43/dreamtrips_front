@@ -1,0 +1,18 @@
+<div style="background: url(../assets/img/big-banner.jpg) no-repeat center/cover fixed">
+    <div class="bg-black-overlay">
+        <div class="container pt-100 pb-100 xs-ptb-30">
+            <div class="row">
+                <div class="col-12 text-center" data-aos="fade-up" data-aos-once="true">
+                    <div class="mw-600 m-auto text-white">
+                        <h3 class="b_sub-title">
+                            {{join.title_1}}
+                            <b>{{join.title_2}}</b>
+                        </h3>
+                        <p class="mb-30">{{join.text}}</p>
+                        <app-callback [button_class]='modal_button_class' [button_text]="modal_button_text"></app-callback>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div style="background: url(../assets/img/big-banner-2.jpg) no-repeat center/cover fixed" id="callback">
+    <div class="bg-black-overlay">
+        <div class="container pt-100 pb-100 xs-ptb-30">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="mw-700 m-auto text-white">
+                        <h3 class="b_sub-title">
+                            <b>{{interested.title}}</b>
+                        </h3>
+                        <h5 class="mb-15">{{interested.subtitle}}</h5>
+                        <p class="mb-30">{{interested.text}}</p>
+                        <app-callback [button_class]='modal_button_class' [button_text]="interested.button"></app-callback>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

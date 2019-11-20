@@ -1,0 +1,30 @@
+<div class="container pt-80 pb-80">
+    <div class="row">
+        <div class="col-12 text-center mb-30" data-aos="fade-up" data-aos-once="true">
+            <h3 class="sub-title">{{gallery.title}}</h3>
+        </div>
+    </div>
+    <div class="blog-carousel" id="carousel_2" data-aos="fade-up" data-aos-once="true">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ngx-slick-carousel class="blog-carousel"
+                                        #slickModal="slick-carousel"
+                                        [config]="slideConfig">
+                        <div class="blog-banner_wrap" ngxSlickItem *ngFor="let item of gallery.slides">
+                            <div class="blog-banner"
+                                 [ngStyle]="{background: 'url(' + item.image + ') no-repeat center/cover'}">
+                                <div class="blog-banner_info">
+                                    <h4>{{item.title}}</h4>
+                                    <a href="{{item.link}}" target="_blank">
+                                        {{item.subtitle}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

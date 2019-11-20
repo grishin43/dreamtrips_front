@@ -1,0 +1,30 @@
+<div class="container-fluid p-0 overflow-hidden">
+    <div class="row">
+        <div class="col-12">
+            <ngx-slick-carousel class="carousel main-carousel"
+                                #slickModal="slick-carousel"
+                                [config]="slideConfig">
+                <div ngxSlickItem *ngFor="let slide of slides" class="main-carousel_item slide">
+                    <div class="main-carousel_item_image">
+                        <img src="{{slide.image}}" alt="{{slide.meta}}">
+                    </div>
+                    <div class="container h-100">
+                        <div class="row h-100 align-items-center">
+                            <div class="col-12">
+                                <div class="main-carousel_item_text">
+                                    <div><p>{{slide.title}}</p></div>
+                                    <div><h2>{{slide.subtitle_1}} <b>{{slide.subtitle_2}}</b></h2></div>
+                                    <div>
+                                        <app-callback [button_class]='modal_button_class' [button_text]="modal_button_text"></app-callback>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+    </div>
+</div>
+
+

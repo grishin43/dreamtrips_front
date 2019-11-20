@@ -1,0 +1,48 @@
+<div class="ptb-block">
+    <div class="container mw-form">
+        <div class="row mb-30 align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-once="true">
+            <div class="col-12 text-center">
+                <h3 class="sub-title">Авторизация</h3>
+            </div>
+        </div>
+        <form [formGroup]="loginForm" #formDir="ngForm" (ngSubmit)="login(loginForm.value)">
+            <div class="form-preloader" *ngIf="show_preloader">
+                <img src="../assets/images/preloader.svg" alt="">
+            </div>
+            <div class="row aos-init aos-animate" data-aos="fade-up" data-aos-once="true">
+                <div class="col-12">
+                    <div class="def-group">
+                        <input class="def-input def-input-gray" type="email" id="user-login_email" placeholder="E-mail"
+                               formControlName="email" required>
+                        <div class="def-group_errors"
+                             *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)">
+                            <div class="def-input_error" *ngIf="userEmail.errors.required">
+                                Поле "E-mail" не может быть пустым
+                            </div>
+                            <div class="def-input_error" *ngIf="userEmail.errors.email">
+                                Некорректный E-mail
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="def-group">
+                        <input class="def-input def-input-gray" type="password" id="user-login_password"
+                               placeholder="Пароль" formControlName="password" required>
+                        <div class="def-group_errors"
+                             *ngIf="userPassword.invalid && (userPassword.dirty || userPassword.touched)">
+                            <div class="def-input_error" *ngIf="userPassword.errors.required">
+                                Поле "Пароль" не может быть пустым
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="def-btn def-btn-fill-blue w-100" [disabled]="loginForm.invalid || is_sending">
+                        Войти
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
